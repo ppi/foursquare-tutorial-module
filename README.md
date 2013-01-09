@@ -1,4 +1,6 @@
-#FourSquareModule#
+#Mashing up FourSquare and Google Maps with GeoLocation and APC#
+
+## Module Name: FourSquareModule ##
 ================
 
 Sample code for our article 'Mashing Up Foursquare with Google Maps and APC' 
