@@ -1,2 +1,0 @@
-foursquare-tutorial-module
-==========================
