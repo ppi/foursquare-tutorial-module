@@ -129,21 +129,14 @@ class ApiHandler
     protected function parseVenue($venue)
     {
         return array(
-            'id'          => isset($venue['id']) ? $venue['id'] : '',
-            'name'        => isset($venue['name']) ? $venue['name'] : '',
-            'latitude'    => isset($venue['location']['lat']) ? $venue['location']['lat'] : '',
-            'longitude'   => isset($venue['location']['lng']) ? $venue['location']['lng'] : '',
-            'address'     => isset($venue['location']['address']) ? $venue['location']['address'] : '',
-            'crossStreet' => isset($venue['location']['crossStreet']) ? $venue['location']['crossStreet'] : '',
-            'city'        => isset($venue['location']['city']) ? $venue['location']['city'] : '',
-            'state'       => isset($venue['location']['state']) ? $venue['location']['state'] : '',
-            'postalCode'  => isset($venue['location']['postalCode']) ? $venue['location']['postalCode'] : '',
-            'country'     => isset($venue['location']['country']) ? $venue['location']['country'] : '',
-            'url'         => isset($venue['url']) ? $venue['url'] : '',
-            'people'      => isset($venue['hereNow']['count']) ? $venue['hereNow']['count'] : '',
-            'categories'  => $venue['categories'],
-            'contact'     => $venue['contact'],
-            'stats'       => $venue['stats']
+            'id'         => isset($venue['id']) ? $venue['id'] : '',
+            'name'       => isset($venue['name']) ? $venue['name'] : '',
+            'location'   => isset($venue['location']) ? $venue['location'] : '',
+            'url'        => isset($venue['url']) ? $venue['url'] : '',
+            'people'     => isset($venue['hereNow']['count']) ? $venue['hereNow']['count'] : '',
+            'categories' => $venue['categories'],
+            'contact'    => $venue['contact'],
+            'stats'      => $venue['stats']
         );
     }
 

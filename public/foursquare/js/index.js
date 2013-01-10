@@ -35,7 +35,10 @@ function addMarker(json) {
     for (i = 0; i < venues.length; i++) {
 
         var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(venues[i].latitude, venues[i].longitude),
+            position: new google.maps.LatLng(
+                venues[i].location.latitude,
+                venues[i].location.longitude
+            ),
             map:      map,
             title:    venues[i].name,
             animation:google.maps.Animation.DROP
@@ -50,8 +53,12 @@ function addMarker(json) {
                 }
 
                 var desc = "<div class='spotsInfo'>" +
-                    "<div class='title'><h2>" + venues[i].name + "<small>" + venues[i].categories[0].name + "</small></h2></div>" +
-                    "<p>" + venues[i].address + " " + venues[i].crossStreet + " " + venues[i].city + "</p>" +
+                    "<div class='title'>" +
+                    "<h2>" + venues[i].name +
+                    "<small>" + venues[i].categories[0].name + "</small></h2></div>" +
+                    "<p>" + venues[i].location.address + " "
+                    + venues[i].location.crossStreet + " "
+                    + venues[i].location.city + "</p>" +
                     "</div>";
 
                 infoWindow.setContent(desc);
