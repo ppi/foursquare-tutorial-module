@@ -26,7 +26,7 @@ function placeSpotsOnMap() {
 
     latlng = new google.maps.LatLng(latitude, longitude);
     map.setCenter(latlng);
-    map.setZoom(11);
+    map.setZoom(10);
 }
 
 function addMarker(json) {
@@ -73,12 +73,14 @@ function useDefaultLocation() {
 }
 
 jQuery(document).ready(function ($) {
-
+    var geo = false;
     //check if the geolocation object is supported, if so get position
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
+            geo = true;
             latitude = position.coords.latitude;
-            longitude = position.coords.longitude;
+            longitude = position.coords.longitude;  
+            initialize();
             placeSpotsOnMap();
         }, function (e) {
             useDefaultLocation();
@@ -87,7 +89,8 @@ jQuery(document).ready(function ($) {
         // browser don't support geo location.
         useDefaultLocation();
     }
-
-    initialize();
-    placeSpotsOnMap();
+    if(!geo) {
+        initialize();
+        placeSpotsOnMap();
+    }
 });
