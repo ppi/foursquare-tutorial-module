@@ -38,20 +38,26 @@ class Module extends BaseModule
     public function getServiceConfig()
     {
         return array('factories' => array(
-
+            
+            // Create a service named foursquare.handler and map it to this lazy-loaded closure
+            // this is called from the controller. The code in this function is not called until a 
+            // getService() call from a controller happens or if another service invokes it.
             'foursquare.handler' => function($sm) {
-
-                $handler = new \FourSquareModule\Classes\ApiHandler();
+                
+                // Construct the Api Handler and cache objects
+                $handler = new \FoursquareModule\Classes\ApiHandler();
                 $cache   = new \Doctrine\Common\Cache\ApcCache();
+                
+                // Pull the config data from the service manager ($sm)
                 $config  = $sm->get('config');
-
+ 
+                // Call the setters on the ApiHandler, passing in its dependencies
                 $handler->setSecret($config['foursquare']['secret']);
                 $handler->setKey($config['foursquare']['key']);
                 $handler->setCache($cache);
-
+ 
                 return $handler;
-            }
-            
+            }      
         ));
     }
 
