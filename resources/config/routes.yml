@@ -1,5 +1,5 @@
-Homepage:
-    pattern:  /foursquare
+Foursquare_Index:
+    pattern:  /foursquare/
     defaults: { _controller: "FourSquareModule:Index:index"}
 
 Foursquare_Venues:
