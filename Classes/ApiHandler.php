@@ -1,6 +1,6 @@
 <?php
 
-namespace FourSquareModule\Classes;
+namespace FoursquareModule\Classes;
 
 class ApiHandler
 {
@@ -13,12 +13,8 @@ class ApiHandler
      * @var string Foursquare's Categories ID.
      */
     protected $categories = array(
-        '4bf58dd8d48988d14c941735',
-        '4bf58dd8d48988d14a941735',
         '4bf58dd8d48988d1d3941735',
-        '4f04af1f2fb6e1c99f3db0bb',
-        '4bf58dd8d48988d149941735',
-        '4bf58dd8d48988d151941735'
+        '4f04af1f2fb6e1c99f3db0bb'
     );
 
     public function __construct() { }
