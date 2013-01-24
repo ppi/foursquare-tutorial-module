@@ -9,7 +9,7 @@
 <script type="text/javascript" src="<?=$view['assets']->getUrl('foursquare/js/index.js');?>"></script>
 <?php $view['slots']->stop(); ?>
 
-<section class='pp-foursquare-tutorial'>
-    <h1>Learning how to use the Modules Component on the PPI framework.</h1>
+<section class="ppi-foursquare-tutorial">
+    <h3>Mashing up FourSquare and Google Maps with GeoLocation and APC.</h3>
     <div class="map" id="map"></div>
 </section>
