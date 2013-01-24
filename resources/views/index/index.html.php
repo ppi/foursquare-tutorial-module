@@ -9,7 +9,7 @@
 <script type="text/javascript" src="<?=$view['assets']->getUrl('foursquare/js/index.js');?>"></script>
 <?php $view['slots']->stop(); ?>
 
-<section class="ppi-foursquare-tutorial">
+<section>
     <h3>GeoLocation with FourSquare and Google Maps.</h3>
     <div class="map" id="map"></div>
 </section>
