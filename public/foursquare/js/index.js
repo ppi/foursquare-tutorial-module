@@ -19,9 +19,9 @@ function initialize() {
 function placeSpotsOnMap() {
 
     // Place Spots on the Map
-    var url = ppi.baseUrl + 'getVenues/lat/' + latitude + '/lng/' + longitude;
-    $.getJSON(url, function (spots) {
-        addMarker(spots);
+    var url = ppi.baseUrl + 'foursquare/getVenues/lat/' + latitude + '/lng/' + longitude;
+    $.getJSON(url, function (json) {
+        addMarker(json);
     });
 
     latlng = new google.maps.LatLng(latitude, longitude);
@@ -32,35 +32,34 @@ function placeSpotsOnMap() {
 function addMarker(json) {
 
     var venues = json.venues;
-    for (i = 0; i < venues.length; i++) {
 
+    for (i = 0; i < venues.length; i++) {
+  
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(
-                venues[i].location.latitude,
-                venues[i].location.longitude
+                venues[i].location.lat,
+                venues[i].location.lng
             ),
             map:      map,
             title:    venues[i].name,
             animation:google.maps.Animation.DROP
-        });
+        });        
 
         (function (i, marker) {
-
+ 
             google.maps.event.addListener(marker, 'click', function () {
-
+ 
                 if (!infoWindow) {
                     infoWindow = new google.maps.InfoWindow();
                 }
-
+ 
                 var desc = "<div class='spotsInfo'>" +
-                    "<div class='title'>" +
-                    "<h2>" + venues[i].name +
-                    "<small>" + venues[i].categories[0].name + "</small></h2></div>" +
-                    "<p>" + venues[i].location.address + " "
-                    + venues[i].location.crossStreet + " "
-                    + venues[i].location.city + "</p>" +
+                    "<div class='title'><h2>" + venues[i].name + 
+                    "<small> " + venues[i].categories[0].name + "</small>" +
+                    "</h2></div>" + "<p>" + venues[i].location.address + 
+                    ", " + venues[i].location.city + "</p>" +
                     "</div>";
-
+ 
                 infoWindow.setContent(desc);
                 infoWindow.open(map, marker);
             });
@@ -71,7 +70,6 @@ function addMarker(json) {
 function useDefaultLocation() {
     latitude = 31.8391;
     longitude = -106.5631;
-    placeSpotsOnMap();
 }
 
 jQuery(document).ready(function ($) {
@@ -86,9 +84,10 @@ jQuery(document).ready(function ($) {
             useDefaultLocation();
         });
     } else {
-        // browser don't support geo.
+        // browser don't support geo location.
         useDefaultLocation();
     }
 
     initialize();
+    placeSpotsOnMap();
 });
