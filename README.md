@@ -1,4 +1,4 @@
-#Mashing up FourSquare and Google Maps with GeoLocation and APC#
+#Tutorial: GeoLocation with FourSquare and Google Maps#
 
 ## Module Name: FourSquareModule ##
 ================
