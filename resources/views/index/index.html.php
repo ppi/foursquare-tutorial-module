@@ -10,6 +10,6 @@
 <?php $view['slots']->stop(); ?>
 
 <section class="ppi-foursquare-tutorial">
-    <h3>Mashing up FourSquare and Google Maps with GeoLocation and APC.</h3>
+    <h3>GeoLocation with FourSquare and Google Maps.</h3>
     <div class="map" id="map"></div>
 </section>
