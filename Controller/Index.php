@@ -1,13 +1,13 @@
 <?php
-namespace FourSquareModule\Controller;
+namespace FoursquareModule\Controller;
 
-use FourSquareModule\Controller\Shared as SharedController;
+use FoursquareModule\Controller\Shared as SharedController;
 
 class Index extends SharedController
 {
     public function indexAction()
     {
-        return $this->render('FourSquareModule:index:index.html.php');
+        return $this->render('FoursquareModule:index:index.html.php');
     }
      
     // Get the lat/long from the route, get venues from the foursquare.handler, and output them as json
