@@ -73,24 +73,18 @@ function useDefaultLocation() {
 }
 
 jQuery(document).ready(function ($) {
-    var geo = false;
+
     //check if the geolocation object is supported, if so get position
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            geo = true;
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;  
             initialize();
             placeSpotsOnMap();
         }, function (e) {
             useDefaultLocation();
+    		initialize();
+			placeSpotsOnMap();
         });
-    } else {
-        // browser don't support geo location.
-        useDefaultLocation();
-    }
-    if(!geo) {
-        initialize();
-        placeSpotsOnMap();
-    }
+	}
 });
