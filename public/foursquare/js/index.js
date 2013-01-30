@@ -73,7 +73,6 @@ function useDefaultLocation() {
 }
 
 jQuery(document).ready(function ($) {
-
     //check if the geolocation object is supported, if so get position
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -83,8 +82,9 @@ jQuery(document).ready(function ($) {
             placeSpotsOnMap();
         }, function (e) {
             useDefaultLocation();
-    		initialize();
-			placeSpotsOnMap();
+            initialize();
+            placeSpotsOnMap();
         });
-	}
+    }
 });
+
