@@ -1,5 +1,5 @@
 <?php
-namespace FourSquareModule\Controller;
+namespace FoursquareModule\Controller;
 
 use PPI\Module\Controller as BaseController;
 
